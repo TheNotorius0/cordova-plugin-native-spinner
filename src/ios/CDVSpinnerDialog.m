@@ -105,7 +105,8 @@
     blue = [command argumentAtIndex:6];
     fontSize = [command argumentAtIndex:7];
     
-    UIViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    // cordova-ios 8 uses scenes and the AppDelegate window is nil there; the plugin view controller is the same one on cordova-ios 7
+    UIViewController *rootViewController = self.viewController;
 
     [rootViewController.view addSubview:self.overlay];
 
